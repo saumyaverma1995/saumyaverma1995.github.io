@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/saumyaverma1995.github.io/static/css/main.02b9b830.chunk.css",
+    "main.css": "/saumyaverma1995.github.io/static/css/main.cccf2872.chunk.css",
     "main.js": "/saumyaverma1995.github.io/static/js/main.031994c4.chunk.js",
     "main.js.map": "/saumyaverma1995.github.io/static/js/main.031994c4.chunk.js.map",
     "runtime-main.js": "/saumyaverma1995.github.io/static/js/runtime-main.e7ef90f3.js",
@@ -8,15 +8,15 @@
     "static/js/2.c46d3d38.chunk.js": "/saumyaverma1995.github.io/static/js/2.c46d3d38.chunk.js",
     "static/js/2.c46d3d38.chunk.js.map": "/saumyaverma1995.github.io/static/js/2.c46d3d38.chunk.js.map",
     "index.html": "/saumyaverma1995.github.io/index.html",
-    "precache-manifest.33c67ffa2869239096a610da6278222f.js": "/saumyaverma1995.github.io/precache-manifest.33c67ffa2869239096a610da6278222f.js",
+    "precache-manifest.9294692bb89c9ecb8c50469527da62a0.js": "/saumyaverma1995.github.io/precache-manifest.9294692bb89c9ecb8c50469527da62a0.js",
     "service-worker.js": "/saumyaverma1995.github.io/service-worker.js",
-    "static/css/main.02b9b830.chunk.css.map": "/saumyaverma1995.github.io/static/css/main.02b9b830.chunk.css.map",
+    "static/css/main.cccf2872.chunk.css.map": "/saumyaverma1995.github.io/static/css/main.cccf2872.chunk.css.map",
     "static/js/2.c46d3d38.chunk.js.LICENSE.txt": "/saumyaverma1995.github.io/static/js/2.c46d3d38.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.e7ef90f3.js",
     "static/js/2.c46d3d38.chunk.js",
-    "static/css/main.02b9b830.chunk.css",
+    "static/css/main.cccf2872.chunk.css",
     "static/js/main.031994c4.chunk.js"
   ]
 }
