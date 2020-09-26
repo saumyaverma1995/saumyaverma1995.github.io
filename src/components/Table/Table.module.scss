@@ -15,13 +15,29 @@
       width: 20%;
     }
     .campaign {
-      width: 40%;
-    }
-    .view {
-      width: 20%;
-    }
-    .action {
       width: 30%;
     }
+    .view {
+      width: 15%;
+    }
+    .action {
+      width: 45%;
+      margin-left: 15px;
+    }
+  }
+}
+@media (max-width: 400px) {
+  .tableWrapper {
+    width: 230%;;
+  }
+}
+@media (max-width: 579px) and (min-width: 400px) {
+  .tableWrapper {
+    width: 200%;;
+  }
+}
+@media (min-width: 579px) and (max-width: 661px) {
+  .tableWrapper {
+    width: 140%;;
   }
 }
