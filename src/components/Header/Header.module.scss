@@ -6,12 +6,30 @@
   position: fixed;
   top: 0;
   left: 0;
+  justify-content: space-between;
+  padding-right: 2em;
   right: 0;
   .wrapper {
     margin-left: 5em;
     display: flex;
     img {
       height: 30px;
+    }
+  }
+  .language {
+    flex-direction: row;
+    color: white;
+  }
+  .radio {
+    color: #f50057;
+  }
+}
+@media (min-width: 300px) and (max-width: 500px) {
+  .header {
+    padding-right: 0em;
+    padding-left: 2em;
+    .wrapper {
+      margin-left: 0em;
     }
   }
 }

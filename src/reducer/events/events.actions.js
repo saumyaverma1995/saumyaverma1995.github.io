@@ -12,3 +12,7 @@ export const setTabKey = (selectedTabKey) => ({
   type: EventActionTypes.SET_TAB_KEY,
   payload: selectedTabKey,
 });
+export const setLanguage = (language) => ({
+  type: EventActionTypes.SET_LANGUAGE,
+  payload: language,
+});

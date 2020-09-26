@@ -22,6 +22,11 @@ const eventsReducer = (state = INITIAL_STATE, action) => {
         ...state,
         selectedTabKey: action.payload,
       };
+    case EventActionTypes.SET_LANGUAGE:
+      return {
+        ...state,
+        selectedLanguage: action.payload,
+      };
     default:
       return state;
   }

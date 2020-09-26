@@ -19,8 +19,10 @@ import _ from "lodash"
 
 const mapStateToProps = (store) => {
   const events = store.eventsReducer.data;
+  let lang = store.eventsReducer.selectedLanguage;
   return {
     events,
+    lang
   };
 };
 const mapDispatchToProps = (dispatch) => {
@@ -33,10 +35,14 @@ const mapDispatchToProps = (dispatch) => {
   );
 };
 class Rows extends Component {
-  state = {
-    showDatePicker: false,
-    openPopup: false,
-  };
+  constructor(props){
+    super(props);
+    this.state = {
+      showDatePicker: false,
+      openPopup: false,
+    };
+  }
+  
   openCalendar = () => {
     this.setState({
       showDatePicker: !this.state.showDatePicker,
@@ -53,6 +59,7 @@ class Rows extends Component {
     });
     this.props.setEventTypes(tempEvents);
   };
+  //handler for opening price details 
   openPopup = () => {
     this.setState({
       openPopup: !this.state.openPopup,
@@ -60,7 +67,7 @@ class Rows extends Component {
   };
   onCloseCalendar = () => {};
   render() {
-    let { data } = this.props;
+    let { data, lang } = this.props;
     let { showDatePicker, selectedDate, openPopup } = this.state;
     return (
       <>
@@ -69,7 +76,7 @@ class Rows extends Component {
             <span className={style.dateText}>
               {changeDateFormat(data.createdOn)}
             </span>
-            <span className={style.days}>{getDays(data.createdOn)}</span>
+            <span className={style.days}>{getDays(data.createdOn, lang)}</span>
           </div>
           <div className={style.campaign}>
             <img src={`${data.image_url}`} alt=""></img>

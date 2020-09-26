@@ -5,6 +5,7 @@ import {
   setEventTypes,
   setTabData,
   setTabKey,
+  setLanguage,
 } from "../../reducer/events/events.actions";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
@@ -15,10 +16,12 @@ const mapStateToProps = (store) => {
   const events = store.eventsReducer.data;
   const selectedTabData = store.eventsReducer.selectedTabData;
   const selectedTabKey = store.eventsReducer.selectedTabKey;
+  let lang = store.eventsReducer.selectedLanguage;
   return {
     events,
     selectedTabData,
     selectedTabKey,
+    lang,
   };
 };
 const mapDispatchToProps = (dispatch) => {
@@ -27,6 +30,7 @@ const mapDispatchToProps = (dispatch) => {
       setEventTypes,
       setTabData,
       setTabKey,
+      setLanguage,
     },
     dispatch
   );
@@ -37,6 +41,11 @@ class ManageCampaigns extends Component {
       { key: 0, value: "Upcoming Campaigns" },
       { key: 1, value: "Live Campaigns" },
       { key: 2, value: "Past Campaigns" },
+    ],
+    tabsGerman: [
+      { key: 0, value: "Kommende Kampagnen" },
+      { key: 1, value: "Live-Kampagne" },
+      { key: 2, value: "Vergangene Kampagne" },
     ],
   };
   componentDidUpdate(prevProps) {
@@ -49,6 +58,7 @@ class ManageCampaigns extends Component {
       pastEvents = [],
       futureEvents = [];
     let { setTabData, selectedTabKey } = this.props;
+    //Logic for segregating event based on date
     events.map((ele) => {
       if (
         new Date().toLocaleDateString("default") ===
@@ -83,6 +93,7 @@ class ManageCampaigns extends Component {
   }
   componentDidMount() {
     let dataRef = firebase.database().ref("data");
+    //fetching data from firebase
     dataRef.on("value", (snapShot) => {
       let data = snapShot.val();
       this.props.setEventTypes(data);
@@ -109,28 +120,41 @@ class ManageCampaigns extends Component {
     }
   };
   render() {
-    let { tabs } = this.state;
-    let { selectedTabKey, selectedTabData } = this.props;
+    let { tabs, tabsGerman } = this.state;
+    let { selectedTabKey, selectedTabData, lang } = this.props;
     return (
       <div className={style.outerDiv}>
-        <h2>Manage Campaigns</h2>
+        {lang === "en" ? (
+          <h2>Manage Campaigns</h2>
+        ) : (
+          <h2>Kampagnen verwalten</h2>
+        )}
         <div className={style.wrapperDiv}>
           <div className={style.tabs}>
-            {tabs.map((tab, index) => (
-              <span
-                key={index}
-                className={selectedTabKey === tab.key ? style.active : ""}
-                onClick={() => this.tabClickHandler(tab)}
-              >
-                {tab.value}
-              </span>
-            ))}
+            {lang === "en"
+              ? tabs.map((tab, index) => (
+                  <span
+                    key={index}
+                    className={selectedTabKey === tab.key ? style.active : ""}
+                    onClick={() => this.tabClickHandler(tab)}
+                  >
+                    {tab.value}
+                  </span>
+                ))
+              : tabsGerman.map((tab, index) => (
+                  <span
+                    key={index}
+                    className={selectedTabKey === tab.key ? style.active : ""}
+                    onClick={() => this.tabClickHandler(tab)}
+                  >
+                    {tab.value}
+                  </span>
+                ))}
           </div>
         </div>
-        {selectedTabData &&
-          selectedTabData.length > 0 && (
-            <Table selectedTabData={selectedTabData} />
-          )}
+        {selectedTabData && selectedTabData.length > 0 && (
+          <Table lang={lang} selectedTabData={selectedTabData} />
+        )}
       </div>
     );
   }
