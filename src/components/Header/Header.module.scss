@@ -1,0 +1,13 @@
+.header {
+  background-color: #1f2640;
+  align-items: center;
+  display: flex;
+  height: 50px;
+  .wrapper {
+    margin-left: 200px;
+    display: flex;
+    img {
+      height: 30px;
+    }
+  }
+}

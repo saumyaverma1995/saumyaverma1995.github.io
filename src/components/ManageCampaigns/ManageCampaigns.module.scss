@@ -1,0 +1,27 @@
+.outerDiv {
+  padding: 15px 200px;
+  font-family: Roboto;
+  h2 {
+    color: #2b416c;
+    font-style: normal;
+    font-weight: bold;
+  }
+  .wrapperDiv {
+    font-family: sans-serif;
+    .tabs {
+      font-size: 11px;
+      width: 40%;
+      display: flex;
+      font-weight: 600;
+      justify-content: space-between;
+      color: #83a515;
+      cursor: pointer;
+      span {
+        padding: 5px 8px 8px;
+      }
+      .active {
+        border-bottom: 2px solid #83a515;
+      }
+    }
+  }
+}

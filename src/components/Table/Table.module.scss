@@ -1,0 +1,27 @@
+.tableWrapper {
+  width: 100%;
+  margin-top: 25px;
+  box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+  .header {
+    display: flex;
+    justify-content: space-between;
+    background: #f1f1f4;
+    padding: 9px 8px 5px;
+    font-size: 10px;
+    font-weight: bold;
+    font-family: sans-serif;
+    color: #556789;
+    .date {
+      width: 20%;
+    }
+    .campaign {
+      width: 40%;
+    }
+    .view {
+      width: 20%;
+    }
+    .action {
+      width: 30%;
+    }
+  }
+}
